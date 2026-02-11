@@ -9,13 +9,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <script>
       /**
-       * 배포 환경(Netlify 등)에서 process.env 참조 에러를 원천 차단하기 위한 쉴드
-       * 라이브러리 로드 전 최상단에서 실행되어야 합니다.
+       * 배포 환경 안정성 확보를 위한 초기화 쉴드
        */
       window.process = {
         env: {
           NODE_ENV: 'production',
-          API_KEY: '' // API_KEY는 환경 변수 주입 시스템에 의해 처리됨
+          API_KEY: ''
         }
       };
     </script>

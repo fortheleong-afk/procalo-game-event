@@ -1,10 +1,11 @@
 
 import { GoogleGenAI } from "@google/genai";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-
 export async function getFitnessTip(score: number, nickname: string): Promise<string> {
   try {
+    // API 키 주입 시점과의 충돌을 방지하기 위해 함수 호출 시점에 인스턴스 생성
+    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || "" });
+    
     const response = await ai.models.generateContent({
       model: 'gemini-3-flash-preview',
       contents: `당신은 '프로칼로(ProCalo)'의 유쾌하고 센스 넘치는 헬스 성향 분석가입니다.
@@ -26,10 +27,7 @@ export async function getFitnessTip(score: number, nickname: string): Promise<st
       }
     });
     
-    // AI가 생성한 텍스트에서 혹시 모를 특수 기호(** 등)를 다시 한 번 제거하는 안전장치
     let cleanText = (response.text || "").replace(/[*_#\-]/g, '').trim();
-    
-    // 서론/결론 상투적 표현 추가 제거
     cleanText = cleanText.replace(/분석 결과입니다|분석 내용입니다|다음은 결과입니다/g, '').trim();
     
     return cleanText || `${nickname}님은 오늘 헬스장의 주인공이 될 상이시네요! 프로칼로 기어와 함께 안전하고 즐겁게 득근하시길 응원해요!`;
