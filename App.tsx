@@ -172,7 +172,6 @@ const App: React.FC = () => {
       >
         {gameState === GameState.START && (
           <div className="absolute inset-0 z-50 flex flex-col items-center justify-start pt-8 p-6 text-center backdrop-blur-md animate-fade-in overflow-y-auto">
-            {/* Improved Event Header Banner - Mobile Optimized Typography */}
             <div className="w-full bg-gradient-to-r from-blue-900 via-blue-600 to-blue-900 py-4 mb-5 relative rounded-2xl shadow-[0_0_20px_rgba(37,99,235,0.3)] border border-blue-400/20 overflow-hidden">
                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"></div>
                <div className="relative z-10 flex flex-col items-center">
@@ -181,7 +180,6 @@ const App: React.FC = () => {
                </div>
             </div>
 
-            {/* Jackpot Highlight - More Visible Text */}
             <div className="w-full relative mb-6 group cursor-default">
                <div className="absolute -inset-1 bg-gradient-to-r from-yellow-500 to-orange-600 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
                <div className="relative bg-neutral-800 border border-yellow-500/20 rounded-2xl p-4 flex items-center gap-4 shadow-xl">
@@ -209,7 +207,6 @@ const App: React.FC = () => {
               </div>
             </div>
 
-            {/* Items Grid - Optimized for Legibility */}
             <div className="w-full grid grid-cols-3 gap-3 mb-6 bg-neutral-800/20 p-4 rounded-2xl border border-white/5 shadow-inner">
                {Object.entries(ITEMS).map(([key, item]) => (
                   <div key={key} className="flex flex-col items-center justify-center p-1.5 rounded-xl">
@@ -320,7 +317,6 @@ const App: React.FC = () => {
           </div>
         )}
         
-        {/* Footer Area - Scaled for Small Screens */}
         <div className="absolute bottom-0 w-full h-16 bg-gradient-to-t from-black to-transparent flex flex-col items-center justify-center pointer-events-none opacity-60">
           <div className="text-[11px] text-neutral-500 font-black tracking-[0.2em] uppercase italic mb-1">Precision • Power</div>
           <div className="w-1/4 h-0.5 bg-blue-500/20 rounded-full"></div>
