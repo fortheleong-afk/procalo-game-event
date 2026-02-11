@@ -1,8 +1,8 @@
 
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { GameState, GameObject } from './types';
-import { GAME_WIDTH, GAME_HEIGHT, PLAYER_WIDTH, OBJECT_SIZE, ITEMS, MILESTONES } from './constants';
-import { getFitnessTip } from './geminiService';
+import { GameState, GameObject } from './types.ts';
+import { GAME_WIDTH, GAME_HEIGHT, PLAYER_WIDTH, OBJECT_SIZE, ITEMS, MILESTONES } from './constants.tsx';
+import { getFitnessTip } from './geminiService.ts';
 
 const App: React.FC = () => {
   const [gameState, setGameState] = useState<GameState>(GameState.START);

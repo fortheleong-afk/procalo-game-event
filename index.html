@@ -16,6 +16,10 @@
             overflow: hidden;
         }
     </style>
+    <script>
+      // Netlify 등 일반 호스팅 환경에서 process.env 참조 에러를 방지하기 위한 심(Shim)
+      window.process = window.process || { env: { API_KEY: "" } };
+    </script>
 <script type="importmap">
 {
   "imports": {
@@ -29,5 +33,7 @@
 </head>
 <body>
     <div id="root"></div>
+    <!-- index.tsx를 모듈로 직접 호출하여 실행 보장 -->
+    <script type="module" src="./index.tsx"></script>
 </body>
 </html>
