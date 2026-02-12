@@ -61,8 +61,8 @@ const App: React.FC = () => {
 
   const handleShare = async () => {
     const shareData = {
-      title: 'ProCalo 72H 이벤트 챌린지',
-      text: `${nickname}님의 훈련 결과: ${score}점! 72시간 한정 챌린지 결과를 확인하세요!`,
+      title: '프로칼로 쿠폰 이벤트 게임',
+      text: `${nickname}님의 훈련 결과: ${score}점! 지금 바로 도전하고 할인 쿠폰을 받으세요!`,
       url: window.location.href,
     };
 
@@ -146,10 +146,10 @@ const App: React.FC = () => {
 
   const getReward = (finalScore: number) => {
     if (finalScore === 72) {
-      return "🎉 72시간 한정 18% 할인: [72HR_SPECIAL]";
+      return "🎉 잭팟! 18% 할인 쿠폰: [72HR_SPECIAL]";
     }
     const achieved = [...MILESTONES].reverse().find(m => finalScore >= m.score);
-    return achieved ? achieved.reward : "5% 할인: [START_GEAR05]";
+    return achieved ? achieved.reward : "5% 할인 쿠폰: [START_GEAR05]";
   };
 
   return (
@@ -176,7 +176,7 @@ const App: React.FC = () => {
                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"></div>
                <div className="relative z-10 flex flex-col items-center">
                   <span className="text-[11px] font-black uppercase tracking-[0.3em] text-blue-200 mb-1 animate-pulse">Limited Time Event</span>
-                  <h2 className="text-[20px] font-black italic tracking-tighter text-white uppercase drop-shadow-lg leading-tight">72H Event Challenge</h2>
+                  <h2 className="text-[18px] font-black italic tracking-tighter text-white uppercase drop-shadow-lg leading-tight">프로칼로 쿠폰 이벤트 게임</h2>
                </div>
             </div>
 
@@ -187,7 +187,7 @@ const App: React.FC = () => {
                   <div className="text-left">
                     <p className="text-[11px] font-black text-yellow-500 uppercase tracking-widest leading-none mb-1">Lucky Target</p>
                     <p className="text-lg font-black text-white leading-tight italic uppercase">72 Pts = <span className="text-yellow-400">18% OFF</span></p>
-                    <p className="text-[11px] text-neutral-400 font-medium">72점을 맞추면 잭팟 쿠폰 증정!</p>
+                    <p className="text-[11px] text-neutral-400 font-medium">72점을 정확히 맞추면 잭팟 쿠폰 증정!</p>
                   </div>
                </div>
             </div>
@@ -281,7 +281,7 @@ const App: React.FC = () => {
             
             <div className={`w-full rounded-2xl p-5 mb-4 border shadow-2xl relative overflow-hidden ${score === 72 ? 'bg-yellow-900/20 border-yellow-500/40' : 'bg-neutral-800/40 border-white/10'}`}>
               <div className={`absolute top-0 right-0 p-1.5 text-[10px] font-black uppercase tracking-widest px-3 ${score === 72 ? 'bg-yellow-500 text-black' : 'bg-blue-600 text-white'}`}>
-                {score === 72 ? 'Event Jackpot' : 'Reward'}
+                {score === 72 ? 'Jackpot' : 'Reward'}
               </div>
               <p className="text-[11px] font-black text-neutral-400 uppercase mb-2 tracking-widest italic">훈련 보상</p>
               <p className={`text-lg font-black break-words leading-tight ${score === 72 ? 'text-yellow-400' : 'text-blue-400'}`}>
